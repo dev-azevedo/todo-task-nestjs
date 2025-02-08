@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, HttpException, HttpStatus, NotFoundException } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
@@ -20,31 +20,16 @@ export class TaskController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    const task = await this.taskService.findOne(+id);
-
-    if (!task)
-      throw new HttpException('Task not found', HttpStatus.NOT_FOUND);
-
-    return task;
+    return await this.taskService.findOne(+id);
   }
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
-    const task = await this.taskService.findOne(+id);
-
-    if (!task)
-      throw new HttpException('Task not found', HttpStatus.NOT_FOUND);
-
     return await this.taskService.update(+id, updateTaskDto);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    const task = await this.taskService.findOne(+id);
-
-    if (!task)
-      throw new HttpException('Task not found', HttpStatus.NOT_FOUND);
-    
     return await this.taskService.remove(+id);
   }
 }
