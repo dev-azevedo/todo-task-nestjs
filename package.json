@@ -1,8 +1,8 @@
 {
-  "name": "tw-todo",
+  "name": "todo-task-nestjs-app",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Jhonatan Azevedo <dev.azevedo@outlook.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

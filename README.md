@@ -25,20 +25,7 @@ Este projeto é uma API RESTful de gerenciamento de tarefas (CRUD) desenvolvida 
    npm install
    ```
 
-3. Configure as variáveis de ambiente no arquivo `.env`:
-
-   ```env
-   DATABASE_TYPE=sqlite
-   DATABASE_DATABASE=database.sqlite
-   ```
-
-4. Execute as migrações do banco de dados:
-
-   ```sh
-   npm run typeorm migration:run
-   ```
-
-5. Inicie a aplicação:
+3. Inicie a aplicação:
 
    ```sh
    npm run start:dev
