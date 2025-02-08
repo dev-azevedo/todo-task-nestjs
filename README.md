@@ -1,4 +1,4 @@
-# todo-task-nestjj - NestJS & TypeORM By: [@dev-azevedo](https://linkedin.com/in/dev-azevedo)
+# todo-task-nestjs - NestJS & TypeORM By: [@dev-azevedo](https://linkedin.com/in/dev-azevedo)
 
 ## Descrição
 
