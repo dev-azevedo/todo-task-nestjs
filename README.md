@@ -161,7 +161,7 @@ export class Task {
 
 Um arquivo com requisições de teste para a API está localizado em:
 
-[/docs/task.http](/docs/task.http)
+[/http/task.http](/http/task.http)
 
 Este arquivo pode ser utilizado na extensão "Rest Client" do VSCode para testar os endpoints de forma rápida.
 
