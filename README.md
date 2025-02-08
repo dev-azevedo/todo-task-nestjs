@@ -1,49 +1,60 @@
-Task API - NestJS & TypeORM By:[@dev-azevedo](https://linkedin.com//in/dev-azevedo)
+# Task API - NestJS & TypeORM By: [@dev-azevedo](https://linkedin.com/in/dev-azevedo)
 
-Descrição
+## Descrição
 
 Este projeto é uma API RESTful de gerenciamento de tarefas (CRUD) desenvolvida com NestJS e TypeORM. Ele permite criar, listar, atualizar e excluir tarefas em um banco de dados SQLite.
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-NestJS
+- [NestJS](https://nestjs.com/)
+- [TypeORM](https://typeorm.io/)
+- [SQLite](https://www.sqlite.org/)
 
-TypeORM
+## Instalação
 
-SQLite
+1. Clone o repositório:
 
-Instalação
+   ```sh
+   git clone <URL_DO_REPOSITORIO>
+   cd <NOME_DO_REPOSITORIO>
+   ```
 
-Clone o repositório:
+2. Instale as dependências:
 
-git clone todo-task-nestjs
-cd todo-task-nestjs
+   ```sh
+   npm install
+   ```
 
-Instale as dependências:
+3. Configure as variáveis de ambiente no arquivo `.env`:
 
-npm install
+   ```env
+   DATABASE_TYPE=sqlite
+   DATABASE_DATABASE=database.sqlite
+   ```
 
-Configure as variáveis de ambiente no arquivo .env:
+4. Execute as migrações do banco de dados:
 
-DATABASE_TYPE=sqlite
-DATABASE_DATABASE=database.sqlite
+   ```sh
+   npm run typeorm migration:run
+   ```
 
-Execute as migrações do banco de dados:
+5. Inicie a aplicação:
 
-npm run typeorm migration:run
+   ```sh
+   npm run start:dev
+   ```
 
-Inicie a aplicação:
+## Endpoints
 
-npm run start:dev
+### *Obter todas as tarefas*
 
-Endpoints
-
-Obter todas as tarefas
-
+```http
 GET http://localhost:3000/tasks?page=1&limit=10
+```
 
-Resposta:
+**Resposta:**
 
+```json
 [
     {
         "id": 1,
@@ -52,73 +63,95 @@ Resposta:
         "status": 1
     }
 ]
+```
 
-Obter uma tarefa por ID
+### *Obter uma tarefa por ID*
 
+```http
 GET http://localhost:3000/tasks/1
+```
 
-Resposta:
+**Resposta:**
 
+```json
 {
     "id": 1,
     "title": "Task 1",
     "description": "Description of Task 1",
     "status": 1
 }
+```
 
-Criar uma nova tarefa
+### *Criar uma nova tarefa*
 
+```http
 POST http://localhost:3000/tasks
 Content-Type: application/json
+```
 
-Body:
+**Body:**
 
+```json
 {
     "title": "Task 21",
     "description": "Task 1 description"
 }
+```
 
-Resposta:
+**Resposta:**
 
+```json
 {
     "id": 21,
     "title": "Task 21",
     "description": "Task 1 description",
     "status": 0
 }
+```
 
-Atualizar uma tarefa
+### *Atualizar uma tarefa*
 
+```http
 PATCH http://localhost:3000/tasks/1
 Content-Type: application/json
+```
 
-Body:
+**Body:**
 
+```json
 {
     "status": 3
 }
+```
 
-Resposta:
+**Resposta:**
 
+```json
 {
     "id": 1,
     "title": "Task 1",
     "description": "Description of Task 1",
     "status": 3
 }
+```
 
-Excluir uma tarefa
+### *Excluir uma tarefa*
 
+```http
 DELETE http://localhost:3000/tasks/3
+```
 
-Resposta:
+**Resposta:**
 
+```json
 {
     "message": "Task deleted successfully"
 }
+```
 
-Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
+```typescript
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'tasks'})
@@ -135,11 +168,15 @@ export class Task {
     @Column({nullable: false})
     status: number;
 }
+```
 
-Arquivo de Testes REST
+## Arquivo de Testes REST
 
 Um arquivo com requisições de teste para a API está localizado em:
 
+```
 /docs/rest-client.http
+```
 
 Este arquivo pode ser utilizado na extensão "Rest Client" do VSCode para testar os endpoints de forma rápida.
+
