@@ -1,4 +1,4 @@
-# Task API - NestJS & TypeORM By: [@dev-azevedo](https://linkedin.com/in/dev-azevedo)
+# todo-task-nestjj - NestJS & TypeORM By: [@dev-azevedo](https://linkedin.com/in/dev-azevedo)
 
 ## Descrição
 
@@ -15,8 +15,8 @@ Este projeto é uma API RESTful de gerenciamento de tarefas (CRUD) desenvolvida 
 1. Clone o repositório:
 
    ```sh
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_REPOSITORIO>
+   git clone todo-task-nestjj
+   cd todo-task-nestjj
    ```
 
 2. Instale as dependências:
